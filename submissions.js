@@ -1,6 +1,10 @@
 window.submissionsData = [
   {
-    "Lorem": "Nick",
-    "Ipsum": "Greenwood"
+    "First Name:": "Nick",
+    "Last Name:": "Greenwood"
+  },
+  {
+    "First Name:": "Anna",
+    "Last Name:": "Greenwood"
   }
 ];
