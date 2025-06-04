@@ -18,7 +18,7 @@ const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSN2_ZC3o4Tgrwkw
 
     const jsContent = `window.submissionsData = ${JSON.stringify(data, null, 2)};`;
 
-    fs.writeFileSync('data/submissions.js', jsContent);
+    fs.writeFileSync('submissions.js', jsContent);
     console.log('submissions.js updated successfully!');
   } catch (err) {
     console.error('Error:', err);
