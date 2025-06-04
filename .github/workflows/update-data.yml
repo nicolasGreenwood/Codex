@@ -28,11 +28,12 @@ jobs:
         env:
           TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
+          echo "Token length: ${#TOKEN}"
           git config --global user.name "Nicolas Greenwood"
           git config --global user.email "nicolas.greenwood@outlook.com"
-          echo "Token length: ${#TOKEN}"
           git remote set-url origin "https://x-access-token:${TOKEN}@github.com/nicolasGreenwood/codex-cms-test.git"
-          git remote -v
+          echo "Remote URL after set-url:"
+          git remote get-url origin
           git add submissions.js
           git commit -m "Update submissions data" || echo "No changes to commit"
-          git push origin main
+          git push --verbose origin main
