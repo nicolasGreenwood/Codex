@@ -26,11 +26,12 @@ jobs:
 
       - name: Commit and Push
         env:
-          TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "Nicolas Greenwood"
           git config --global user.email "nicolas.greenwood@outlook.com"
-          git remote set-url origin https://x-access-token:${TOKEN}@github.com/nicolasGreenwood/codex-cms-test.git
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/nicolasGreenwood/codex-cms-test.git
+          git remote -v
           git add submissions.js
           git commit -m "Update submissions data" || echo "No changes to commit"
           git push origin main
