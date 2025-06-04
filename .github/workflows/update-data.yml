@@ -30,7 +30,7 @@ jobs:
         run: |
           git config --global user.name "Nicolas Greenwood"
           git config --global user.email "nicolas.greenwood@outlook.com"
-          git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${TOKEN}@github.com/nicolasGreenwood/codex-cms-test.git
           git add submissions.js
-          git commit -m "Update submissions data"
+          git commit -m "Update submissions data" || echo "No changes to commit"
           git push origin main
