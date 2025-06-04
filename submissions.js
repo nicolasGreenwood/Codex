@@ -1,1 +1,6 @@
-window.submissionsData = [];
+window.submissionsData = [
+  {
+    "Lorem": "Nick",
+    "Ipsum": "Greenwood"
+  }
+];
