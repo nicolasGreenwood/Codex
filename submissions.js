@@ -1,6 +1,6 @@
 window.submissionsData = [
   {
-    "First Name:": "Nick",
+    "First Name:": "Nicolas",
     "Last Name:": "Greenwood"
   },
   {
