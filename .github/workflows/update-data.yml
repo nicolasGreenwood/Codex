@@ -31,6 +31,6 @@ jobs:
           git config --global user.name "Nicolas Greenwood"
           git config --global user.email "nicolas.greenwood@outlook.com"
           git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
-          git add data/submissions.js
+          git add submissions.js
           git commit -m "Update submissions data"
           git push origin main
