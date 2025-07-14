@@ -3306,6 +3306,214 @@ style="
         }
       });
     </script>
-    <script src="/codex.js"></script>
+    <script type>
+      // WELCOME TO BASIC CODEX SCRIPTS. IF YOU'RE USING AS PART OF THE BOILERPLATE, BE AWARE THAT EDITING RISKS BREAKING FUNCTIONALITY OF YOUR WEBPAGE. DO NOT EDIT UNLESS YOU ARE PROFICIENT IN JAVASCRIPT.
+
+      //----------Highlight.js function to highlight all code snippets
+
+      hljs.highlightAll();
+
+      //----------Lenis smooth scroll config
+
+      // new Lenis instance
+      const lenis = new Lenis({
+        lerp: 0.05,
+        wheelMultiplier: 0.8,
+        duration: 1.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+
+      //----------Color scheme button script
+
+      const colorSchemeBtn = document.getElementById("color-scheme-btn");
+
+      // set the default theme
+      document.documentElement.style.colorScheme = "dark";
+
+      colorSchemeBtn.addEventListener("click", () => {
+        // get current color scheme
+        const currentColorScheme = document.documentElement.style.colorScheme;
+
+        // if the color scheme is dark, change the color scheme to light, otherwise change it to dark
+        if (currentColorScheme === "dark") {
+          document.documentElement.style.colorScheme = "light";
+          colorSchemeBtn.innerHTML = `<span class="material-symbols-outlined"> dark_mode </span>`;
+        } else {
+          document.documentElement.style.colorScheme = "dark";
+          colorSchemeBtn.innerHTML = `<span class="material-symbols-outlined"> light_mode </span>`;
+        }
+      });
+
+      // upon landing, after 3 seconds, hide the color scheme button
+      window.setTimeout(() => {
+        colorSchemeBtn.style.opacity = 0;
+        colorSchemeBtn.style.pointerEvents = "none"; // disable any invisible click behavior
+      }, 3000);
+
+      // if the user's mouse moves and is in the lower right quarter of the viewport, show the color scheme button
+      window.addEventListener("mousemove", (e) => {
+        if (
+          e.clientX > window.innerWidth / 2 &&
+          e.clientY > window.innerHeight / 2
+        ) {
+          colorSchemeBtn.style.opacity = 1;
+          colorSchemeBtn.style.pointerEvents = "auto";
+        } else {
+          colorSchemeBtn.style.opacity = 0;
+          colorSchemeBtn.style.pointerEvents = "none";
+        }
+      });
+
+      //----------Theme gradient headers script
+
+      const themeHeaders = document.querySelectorAll(".theme-header");
+
+      // for each theme header, randoamly generate a massive CSS mesh gradient
+      themeHeaders.forEach((header) => {
+        header.style.backgroundImage = `
+    radial-gradient(at ${Math.round(Math.random() * 100)}% ${Math.round(
+          Math.random() * 100
+        )}%, hsla(${Math.round(Math.random() * 360)}, ${Math.round(
+          Math.random() * 50 + 50
+        )}%, ${Math.round(Math.random() * 50 + 50)}%, 1) 0px, transparent 50%), 
+    radial-gradient(at ${Math.round(Math.random() * 100)}% ${Math.round(
+          Math.random() * 100
+        )}%, hsla(${Math.round(Math.random() * 360)}, ${Math.round(
+          Math.random() * 50 + 50
+        )}%, ${Math.round(Math.random() * 50 + 50)}%, 1) 0px, transparent 50%), 
+    radial-gradient(at ${Math.round(Math.random() * 100)}% ${Math.round(
+          Math.random() * 100
+        )}%, hsla(${Math.round(Math.random() * 360)}, ${Math.round(
+          Math.random() * 50 + 50
+        )}%, ${Math.round(Math.random() * 50 + 50)}%, 1) 0px, transparent 50%),
+    radial-gradient(at ${Math.round(Math.random() * 100)}% ${Math.round(
+          Math.random() * 100
+        )}%, hsla(${Math.round(Math.random() * 360)}, ${Math.round(
+          Math.random() * 50 + 50
+        )}%, ${Math.round(Math.random() * 50 + 50)}%, 1) 0px, transparent 50%),
+    radial-gradient(at ${Math.round(Math.random() * 100)}% ${Math.round(
+          Math.random() * 100
+        )}%, hsla(${Math.round(Math.random() * 360)}, ${Math.round(
+          Math.random() * 50 + 50
+        )}%, ${Math.round(Math.random() * 50 + 50)}%, 1) 0px, transparent 50%),
+    radial-gradient(at ${Math.round(Math.random() * 100)}% ${Math.round(
+          Math.random() * 100
+        )}%, hsla(${Math.round(Math.random() * 360)}, ${Math.round(
+          Math.random() * 50 + 50
+        )}%, ${Math.round(Math.random() * 50 + 50)}%, 1) 0px, transparent 50%),
+    radial-gradient(at ${Math.round(Math.random() * 100)}% ${Math.round(
+          Math.random() * 100
+        )}%, hsla(${Math.round(Math.random() * 360)}, ${Math.round(
+          Math.random() * 50 + 50
+        )}%, ${Math.round(Math.random() * 50 + 50)}%, 1) 0px, transparent 50%)`;
+      });
+
+      //----------Theme gradient spheres script
+
+      const themeSpheres = document.querySelectorAll(".theme-sphere");
+
+      // same logic as theme header, only smaller gradient
+      themeSpheres.forEach((sphere) => {
+        sphere.style.backgroundImage = `
+    radial-gradient(circle at 30% 30%, transparent, light-dark(#eee, black) 80%),
+    radial-gradient(at ${Math.round(Math.random() * 100)}% ${Math.round(
+          Math.random() * 100
+        )}%, hsla(${Math.round(Math.random() * 360)}, ${Math.round(
+          Math.random() * 50 + 50
+        )}%, ${Math.round(Math.random() * 50 + 50)}%, 1) 0px, transparent 50%), 
+    radial-gradient(at ${Math.round(Math.random() * 100)}% ${Math.round(
+          Math.random() * 100
+        )}%, hsla(${Math.round(Math.random() * 360)}, ${Math.round(
+          Math.random() * 50 + 50
+        )}%, ${Math.round(Math.random() * 50 + 50)}%, 1) 0px, transparent 50%), 
+    radial-gradient(at ${Math.round(Math.random() * 100)}% ${Math.round(
+          Math.random() * 100
+        )}%, hsla(${Math.round(Math.random() * 360)}, ${Math.round(
+          Math.random() * 50 + 50
+        )}%, ${Math.round(Math.random() * 50 + 50)}%, 1) 0px, transparent 50%),
+    radial-gradient(at ${Math.round(Math.random() * 100)}% ${Math.round(
+          Math.random() * 100
+        )}%, hsla(${Math.round(Math.random() * 360)}, ${Math.round(
+          Math.random() * 50 + 50
+        )}%, ${Math.round(Math.random() * 50 + 50)}%, 1) 0px, transparent 50%)`;
+      });
+
+      //----------Nav item highlighting
+
+      const navItems = document.querySelectorAll(".nav-item");
+
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          // clear all previously highlighted nav items
+          navItems.forEach((item) => {
+            item.classList.remove("selected");
+          });
+
+          // highlight the one being clicked
+          item.classList.add("selected");
+        });
+      });
+
+      //----------Pop-up script
+
+      const allPopUps = document.querySelectorAll(".pop-up");
+
+      allPopUps.forEach((popUp) => {
+        // disable Lenis to allow for nested scrolling
+        popUp.setAttribute("data-lenis-prevent", "");
+
+        // create a close button and add it to each popup
+        const closeBtn = document.createElement("button");
+        closeBtn.textContent = "Close";
+        closeBtn.style.display = "block";
+        closeBtn.style.marginLeft = "auto";
+
+        // close button functionality
+        closeBtn.addEventListener("click", () => {
+          popUp.style.display = "none";
+        });
+
+        popUp.appendChild(closeBtn);
+      });
+
+      //----------Link functionality
+
+      const codexOrigins = document.querySelectorAll(
+        "[data-codex-destination-id]"
+      ); // all elements with the attribute of "data-codex-destination-id"
+
+      // all main pages of the document
+      const allPages = document.querySelectorAll(".page");
+
+      codexOrigins.forEach((origin) => {
+        // find the destination
+        const destinationElementId = origin.dataset.codexDestinationId; // value of the attribute
+        const destinationElement =
+          document.getElementById(destinationElementId);
+
+        // listen for origin click event
+        origin.addEventListener("click", () => {
+          // if a page is being requested, hide all other pages
+          if (destinationElement.classList.contains("page")) {
+            allPages.forEach((page) => {
+              page.style.display = "none";
+            });
+
+            // then show destination element
+            destinationElement.style.display = "block";
+          } else {
+            // otherwise just show the destination element
+            destinationElement.style.display = "block";
+          }
+        });
+      });
+    </script>
   </body>
 </html>
